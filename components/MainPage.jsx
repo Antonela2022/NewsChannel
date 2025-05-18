@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import Header from "./Header";
 import Filters from "./Filters";
@@ -9,16 +7,18 @@ import { fetchNewsFromAPI } from "../utils/recordsFunctionsAPI";
 import { useSession } from "next-auth/react";
 
 const MainPage = () => {
-    const { data: session } = useSession(); 
-    const isLoggedIn = !!session;
+  const { data: session } = useSession();
+  const isLoggedIn = !!session;
   const [category, setCategory] = useState("general");
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
   const [pageSize, setPageSize] = useState(20);
+  const totalPages = Math.ceil(totalResults / pageSize);
 
-  // Încarcă articolele pentru o pagină dată
+  const canLoadMore = page < totalPages;
+
   const fetchNews = async (pageToFetch = 1, reset = false) => {
     setLoading(true);
     const data = await fetchNewsFromAPI(category, pageToFetch);
@@ -32,24 +32,16 @@ const MainPage = () => {
     setLoading(false);
   };
 
-  // La schimbarea categoriei, resetează pagina și încarcă de la 1
   useEffect(() => {
     setPage(1);
     fetchNews(1, true);
   }, [category]);
 
-  // Load more
   const loadMore = () => {
     const nextPage = page + 1;
     setPage(nextPage);
     fetchNews(nextPage);
   };
-
-  // Calculăm total pagini dinamc
-  const totalPages = Math.ceil(totalResults / pageSize);
-
-  // Putem încă să încarcăm?
-  const canLoadMore = page < totalPages;
 
   return (
     <>

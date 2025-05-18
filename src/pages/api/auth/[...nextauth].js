@@ -5,7 +5,7 @@ import clientPromise from "../../../../lib/mongodb";
 
 export const authOptions = {
   adapter: MongoDBAdapter(clientPromise, {
-    databaseName: process.env.NEXT_ATLAS_DATABASE, 
+    databaseName: process.env.NEXT_ATLAS_DATABASE,
   }),
   providers: [
     GoogleProvider({

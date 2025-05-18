@@ -1,4 +1,3 @@
-"use client";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 const AuthButton = () => {
@@ -24,7 +23,7 @@ const AuthButton = () => {
                 title={session.user.name}
             />
             <button
-                onClick={() => signOut()}
+                onClick={() => signOut({ callbackUrl: "/" })}
                 className="text-sm text-red-500 hover:underline"
             >
                 Sign out
