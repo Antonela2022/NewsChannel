@@ -1,8 +1,22 @@
-import { useState } from "react";
-import { deleteArticle } from "../utils/recordsFunctionsAPI";
+import { useState, useEffect } from "react";
+import { deleteArticle, getSavedArticles } from "../utils/recordsFunctionsAPI";
+import Spinner from "../components/Spinner";
 
-const SavedNews = ({ savedArticles }) => {
-    const [articles, setArticles] = useState(savedArticles);
+const SavedNews = () => {
+    const [articles, setArticles] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const loadArticles = async () => {
+            const data = await getSavedArticles();
+            if (data) {
+                setArticles(data);
+            }
+            setLoading(false);
+        };
+
+        loadArticles();
+    }, []);
 
     const handleDelete = async (id) => {
         const data = await deleteArticle(id);
@@ -11,6 +25,8 @@ const SavedNews = ({ savedArticles }) => {
         }
     };
 
+    if (loading) return <Spinner />;
+    
     return (
         <main className="max-w-6xl mx-auto p-4">
             <h1 className="text-3xl font-bold mb-6">📰 Saved News</h1>
