@@ -38,15 +38,15 @@ a utilizatorului.
 
 ### Exemple de request/response 
 1. Request si response  GET stiri – pentru parametrul contry=us si category= business 
-![alt text](image-1.png)
+![alt text](public/images/image-1.png)
 2. Request si response GET stiri – pentru parametrul contry=us si category= business – apel backend cu paginare
-![alt text](image-2.png)
+![alt text](public/images/image-2.png)
 3. Request si response  POST – salvare articol pentru utilizatrul autentificat
-![alt text](image-3.png)
+![alt text](public/images/image-3.png)
 4. Request si response GET – preluare articole salvate de utilizatorul autentificat
-![alt text](image-4.png)
+![alt text](public/images/image-4.png)
 5. Request si response DELETE – stergere articol din lista personala a utilizatorului autentificat
-![alt text](image-5.png)
+![alt text](public/images/image-5.png)
 
 
 
@@ -64,32 +64,31 @@ Cele mai importante trei API-uri care au fost integrate în cadrul aplicației N
 Mai jos se regasesc capturi de ecran din versiunea live, găzduită pe Vercel.
 
 Pagina principala
-![alt text](image-6.png)
+![alt text](public/images/image-6.png)
 
 Pagina principala si filtru
-![alt text](image-7.png)
+![alt text](public/images/image-7.png)
 
 La apasarea iconitei de salvare daca utilizatorul nu este autentificat
-![alt text](image-8.png)
+![alt text](public/images/image-8.png)
 
 La apasarea tab-ului Saved News daca utiliztorul nu este autentificat 
-![alt text](image-9.png)
+![alt text](public/images/image-9.png)
 
 Autentificare realizata cu succes cu google 
-![alt text](image-10.png)
+![alt text](public/images/image-10.png)
 
 Articol salvat cu succes 
-![alt text](image-11.png)
+![alt text](public/images/image-11.png)
 
 Salvare articol de mai multe ori:
-![alt text](image-12.png)
+![alt text](public/images/image-12.png)
 
 Pagina Saved News - lista personala a stirilor salvate 
-![alt text](image-13.png)
+![alt text](public/images/image-13.png)
 
 Rezultat articole sterse:
-![alt text](image-14.png)
-First, run the development server:
+![alt text](public/images/image-14.png)
 
 Pentru deconectare se poate apasa butonul Sign-out din cadrul antetului
-![alt text](image-15.png)
+![alt text](public/images/image-15.png)
